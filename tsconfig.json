@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ezng": [
+        "dist/ezng"
+      ],
+      "ezng/*": [
+        "dist/ezng/*"
+      ]
+    }
   }
 }

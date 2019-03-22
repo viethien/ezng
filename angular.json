@@ -2,5 +2,174 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ezng": {
+      "root": "projects/ezng",
+      "sourceRoot": "projects/ezng/src",
+      "projectType": "library",
+      "prefix": "ez",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ezng/tsconfig.lib.json",
+            "project": "projects/ezng/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ezng/src/test.ts",
+            "tsConfig": "projects/ezng/tsconfig.spec.json",
+            "karmaConfig": "projects/ezng/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ezng/tsconfig.lib.json",
+              "projects/ezng/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "EzNgDemo": {
+      "root": "projects/EzNgDemo/",
+      "sourceRoot": "projects/EzNgDemo/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/EzNgDemo",
+            "index": "projects/EzNgDemo/src/index.html",
+            "main": "projects/EzNgDemo/src/main.ts",
+            "polyfills": "projects/EzNgDemo/src/polyfills.ts",
+            "tsConfig": "projects/EzNgDemo/tsconfig.app.json",
+            "assets": [
+              "projects/EzNgDemo/src/favicon.ico",
+              "projects/EzNgDemo/src/assets"
+            ],
+            "styles": [
+              "projects/EzNgDemo/src/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/EzNgDemo/src/environments/environment.ts",
+                  "with": "projects/EzNgDemo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "EzNgDemo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "EzNgDemo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "EzNgDemo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/EzNgDemo/src/test.ts",
+            "polyfills": "projects/EzNgDemo/src/polyfills.ts",
+            "tsConfig": "projects/EzNgDemo/tsconfig.spec.json",
+            "karmaConfig": "projects/EzNgDemo/karma.conf.js",
+            "styles": [
+              "projects/EzNgDemo/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/EzNgDemo/src/favicon.ico",
+              "projects/EzNgDemo/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/EzNgDemo/tsconfig.app.json",
+              "projects/EzNgDemo/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "EzNgDemo-e2e": {
+      "root": "projects/EzNgDemo-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/EzNgDemo-e2e/protractor.conf.js",
+            "devServerTarget": "EzNgDemo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "EzNgDemo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/EzNgDemo-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ezng"
 }
