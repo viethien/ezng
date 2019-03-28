@@ -68,3 +68,5 @@ Now you can add form controls with the directives ez-text, ez-select, ez-radio, 
   <button type="button" (click)="readonly = !readonly">Toggle readonly</button>
 </form>
 ```
+
+Putting a readonly attribute on the form will place all controls on the form into read only mode.
