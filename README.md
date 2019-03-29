@@ -10,7 +10,7 @@ npm install --save ngx-ez
 
 ## Forms
 
-Add the EzFormsModule to your module and you are ready to build so Easy Forms.
+Add the EzFormsModule to your module and you are ready to build Easy Forms.
 
 ```javascript
 import { NgModule } from '@angular/core';
