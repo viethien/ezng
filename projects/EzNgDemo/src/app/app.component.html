@@ -1,3 +1,5 @@
+<h1>Easy Angular</h1>
+<h2>Forms</h2>
 <form ez-form (ezSubmit)="onSubmit()" [readonly]="readonly">
   <ez-text name="text" [(ngModel)]="model.text" required range="4-6">
     Text
@@ -31,3 +33,15 @@
   <button type="reset">Reset</button>
   <button type="button" (click)="readonly = !readonly">Toggle readonly</button>
 </form>
+
+<h2>Table</h2>
+<ez-table [data]="tableData" [pageSize]="5" groupBy="lastName">
+  <ez-table-search></ez-table-search>
+  <ez-column heading="Last Name" property="lastName">
+    <ng-template let-item>
+      :{{item.lastName}}
+    </ng-template>
+  </ez-column>
+  <ez-column heading="First Name" property="firstName"></ez-column>
+  <ez-table-pager footer></ez-table-pager>
+</ez-table>

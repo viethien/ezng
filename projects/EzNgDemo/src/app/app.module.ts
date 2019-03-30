@@ -5,6 +5,7 @@ import { EzFormsModule } from 'projects/ezng/src/lib/ez-forms/ez-forms.module';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { EzTableModule } from 'projects/ezng/src/lib/ez-table/ez-table.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    EzFormsModule
+    EzFormsModule,
+    EzTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

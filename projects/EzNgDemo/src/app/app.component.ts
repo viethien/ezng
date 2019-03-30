@@ -17,6 +17,16 @@ export class AppComponent {
 
   readonly = false;
 
+  tableData = [
+    { firstName: 'Billy', lastName: 'Bob' },
+    { firstName: 'Mary', lastName: 'Joe' },
+    { firstName: 'Sue', lastName: 'Harris' },
+    { firstName: 'Bob', lastName: 'Walker' },
+    { firstName: 'Harry', lastName: 'Jones' },
+    { firstName: 'Hillary', lastName: 'Smith' },
+    { firstName: 'Joe', lastName: 'Jones' }
+  ];
+
   onSubmit() {
     console.log("Submitted");
   }
