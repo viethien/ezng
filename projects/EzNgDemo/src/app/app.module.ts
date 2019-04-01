@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { EzFormsModule } from 'projects/ezng/src/lib/ez-forms/ez-forms.module';
+import { EzFormsModule } from 'ngx-ez';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { EzTableModule } from 'projects/ezng/src/lib/ez-table/ez-table.module';
+import { EzTableModule } from 'ngx-ez';
 
 @NgModule({
   declarations: [

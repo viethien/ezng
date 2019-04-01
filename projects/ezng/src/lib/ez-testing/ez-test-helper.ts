@@ -31,6 +31,11 @@ export class EzTestHelper<T> {
     return child ? child.context.value : undefined;
   }
 
+  async message(name: string): Promise<any> {
+    const child = await this.find(name);
+    return child ? child.context.message : undefined;
+  }
+
   async shown(name: string): Promise<boolean> {
     const child = await this.find(name);
     return child !== null;

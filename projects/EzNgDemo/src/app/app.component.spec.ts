@@ -1,8 +1,8 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { EzTestHelper, EzFormsModule } from 'projects/ezng/src/public-api';
+import { EzTestHelper, EzFormsModule } from 'ngx-ez';
 import { FormsModule } from '@angular/forms';
-import { EzTableModule } from 'ezng/ngx-ez';
+import { EzTableModule } from 'ngx-ez';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -25,26 +25,26 @@ describe('AppComponent', () => {
   });
 
   it('password should be invalid', async () => {
-    const valid = await helper.valid('password');
-    expect(valid).toBeFalsy();
+    const invalid = await helper.invalid('password');
+    expect(invalid).toBeTruthy();
   });
 
   it('password should be valid', async () => {
     component.model.password = 'some password';
     const valid = await helper.valid('password');
-    expect(valid).toBeFalsy();
+    expect(valid).toBeTruthy();
   });
 
   it('password again should be invalid', async () => {
     component.model.password = 'some password';
-    const valid = await helper.valid('passwordAgain');
-    expect(valid).toBeFalsy();
+    const invalid = await helper.invalid('passwordAgain');
+    expect(invalid).toBeTruthy();
   });
 
   it('password again should be valid', async () => {
     component.model.password = 'some password';
     component.passwordAgain = 'some password';
     const valid = await helper.valid('passwordAgain');
-    expect(valid).toBeFalsy();
+    expect(valid).toBeTruthy();
   });
 });
