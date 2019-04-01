@@ -29,6 +29,14 @@
     Checkboxes
   </ez-checkboxes>
 
+  <ez-password name="password" [(ngModel)]="model.password" required>
+    Password
+  </ez-password>
+
+  <ez-password name="passwordAgain" [(ngModel)]="passwordAgain" [same]="model.password" [messages]="{ same: 'Should be the same as password' }">
+    Password Again
+  </ez-password>
+
   <button type="submit">Submit</button>
   <button type="reset">Reset</button>
   <button type="button" (click)="readonly = !readonly">Toggle readonly</button>

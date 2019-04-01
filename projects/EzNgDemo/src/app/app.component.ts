@@ -12,8 +12,11 @@ export class AppComponent {
     select: 1,
     radio: null,
     checkbox: false,
-    checkboxes: { prop1: false, prop2: true, prop3: false }
+    checkboxes: { prop1: false, prop2: true, prop3: false },
+    password: null
   };
+
+  passwordAgain = '';
 
   readonly = false;
 

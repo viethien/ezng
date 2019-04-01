@@ -1,31 +1,50 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { EzTestHelper, EzFormsModule } from 'projects/ezng/src/public-api';
+import { FormsModule } from '@angular/forms';
+import { EzTableModule } from 'ezng/ngx-ez';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule, EzFormsModule, EzTableModule],
       declarations: [
         AppComponent
       ],
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  let helper: EzTestHelper<AppComponent>;
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
+    helper = new EzTestHelper(fixture);
   });
 
-  it(`should have as title 'EzNgDemo'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('EzNgDemo');
+  it('password should be invalid', async () => {
+    const valid = await helper.valid('password');
+    expect(valid).toBeFalsy();
   });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to EzNgDemo!');
+  it('password should be valid', async () => {
+    component.model.password = 'some password';
+    const valid = await helper.valid('password');
+    expect(valid).toBeFalsy();
+  });
+
+  it('password again should be invalid', async () => {
+    component.model.password = 'some password';
+    const valid = await helper.valid('passwordAgain');
+    expect(valid).toBeFalsy();
+  });
+
+  it('password again should be valid', async () => {
+    component.model.password = 'some password';
+    component.passwordAgain = 'some password';
+    const valid = await helper.valid('passwordAgain');
+    expect(valid).toBeFalsy();
   });
 });

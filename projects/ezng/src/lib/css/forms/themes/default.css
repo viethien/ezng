@@ -15,6 +15,10 @@
   padding-inline-end: 0;
 }
 
+.ez-required {
+  color: red;
+}
+
 .ez-control input,
 .ez-control select,
 .ez-form button {

@@ -2,8 +2,6 @@
 
 Easy Angular is a collection of components to help build Angular apps in a template driven style.
 
-[Testbed on StackBlitz](https://stackblitz.com/edit/angular-8brst8?file=src%2Fapp%2Fapp.component.html)
-
 ## Usage
 
 npm install --save ngx-ez
@@ -11,6 +9,8 @@ npm install --save ngx-ez
 ## Forms
 
 Add the EzFormsModule to your module and you are ready to build so Easy Forms.
+
+[Testbed on StackBlitz](https://stackblitz.com/edit/angular-8brst8?file=src%2Fapp%2Fapp.component.html)
 
 ```javascript
 import { NgModule } from '@angular/core';
@@ -70,3 +70,4 @@ Now you can add form controls with the directives ez-text, ez-select, ez-radio, 
 ```
 
 Putting a readonly attribute on the form will place all controls on the form into read only mode.
+

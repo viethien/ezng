@@ -17,6 +17,8 @@ import { CheckboxesRequiredDirective } from "./validators/checkboxes-required.di
 import { RangeDirective } from "./validators/range.directive";
 import { ValidatorDirective } from "./validators/validator.directive";
 import { EzCoreModule } from "../ez-core/ez-core.module";
+import { EzPasswordComponent } from './components/controls/ez-password/ez-password.component';
+import { SameDirective } from './validators/same.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { EzCoreModule } from "../ez-core/ez-core.module";
     AlphaStartDirective,
     CheckboxesRequiredDirective,
     RangeDirective,
-    ValidatorDirective
+    ValidatorDirective,
+    EzPasswordComponent,
+    SameDirective
   ],
   imports: [CommonModule, FormsModule, EzCoreModule],
   exports: [
@@ -50,7 +54,9 @@ import { EzCoreModule } from "../ez-core/ez-core.module";
     AlphaStartDirective,
     CheckboxesRequiredDirective,
     RangeDirective,
-    ValidatorDirective
+    ValidatorDirective,
+    EzPasswordComponent,
+    SameDirective
   ]
 })
 export class EzFormsModule {}
