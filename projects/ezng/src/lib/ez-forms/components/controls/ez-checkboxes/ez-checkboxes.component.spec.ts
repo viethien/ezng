@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EzCheckboxesComponent } from './ez-checkboxes.component';
+import { EzTestingModule } from '../../../../ez-testing/ez-testing.module';
 
 describe('EzCheckboxesComponent', () => {
   let component: EzCheckboxesComponent;
@@ -8,7 +9,8 @@ describe('EzCheckboxesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EzCheckboxesComponent ]
+      declarations: [ EzCheckboxesComponent ],
+      imports: [ EzTestingModule ]
     })
     .compileComponents();
   }));

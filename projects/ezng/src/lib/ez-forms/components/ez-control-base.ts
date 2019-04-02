@@ -13,21 +13,23 @@ export class EzControlBase implements ControlValueAccessor, OnDestroy {
     public ezGroup: EzGroupComponent,
     public ngControl: NgControl
   ) {
-    ngControl.valueAccessor = this;
-    this.subscription = ngControl.valueChanges.subscribe(() => {
-      if (ngControl.invalid) {
-        const errorType = Object.keys(ngControl.errors)[0];
-        const errorValue = Object.values(ngControl.errors)[0];
-        this.message =
-          this.messages[errorType] ||
-          ezFormConfigService.defaultMessages[errorType] ||
-          (typeof errorValue === 'string'
-            ? errorValue
-            : ezFormConfigService.defaultMessages.invalid);
-      } else {
-        this.message = '';
-      }
-    });
+    if (ngControl) {
+      ngControl.valueAccessor = this;
+      this.subscription = ngControl.valueChanges.subscribe(() => {
+        if (ngControl.invalid) {
+          const errorType = Object.keys(ngControl.errors)[0];
+          const errorValue = Object.values(ngControl.errors)[0];
+          this.message =
+            this.messages[errorType] ||
+            ezFormConfigService.defaultMessages[errorType] ||
+            (typeof errorValue === 'string'
+              ? errorValue
+              : ezFormConfigService.defaultMessages.invalid);
+        } else {
+          this.message = '';
+        }
+      });
+    }
   }
 
   subscription: Subscription;
@@ -140,11 +142,11 @@ export class EzControlBase implements ControlValueAccessor, OnDestroy {
   value: any = null;
 
   get valid(): boolean {
-    return this.ngControl.valid;
+    return this.ngControl && this.ngControl.valid;
   }
 
   get invalid(): boolean {
-    return this.ngControl.invalid;
+    return this.ngControl && this.ngControl.invalid;
   }
 
   writeValue(value: any) {

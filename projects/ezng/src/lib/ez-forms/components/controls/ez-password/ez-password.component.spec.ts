@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EzPasswordComponent } from './ez-password.component';
+import { EzTestingModule } from '../../../../ez-testing/ez-testing.module';
 
 describe('EzPasswordComponent', () => {
   let component: EzPasswordComponent;
@@ -8,7 +9,8 @@ describe('EzPasswordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EzPasswordComponent ]
+      declarations: [ EzPasswordComponent ],
+      imports: [ EzTestingModule ]
     })
     .compileComponents();
   }));

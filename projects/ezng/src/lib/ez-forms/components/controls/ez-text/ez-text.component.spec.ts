@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EzTextComponent } from './ez-text.component';
+import { EzTestingModule } from '../../../../ez-testing/ez-testing.module';
 
 describe('EzTextComponent', () => {
   let component: EzTextComponent;
@@ -8,7 +9,8 @@ describe('EzTextComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EzTextComponent ]
+      declarations: [ EzTextComponent ],
+      imports: [ EzTestingModule ]
     })
     .compileComponents();
   }));
