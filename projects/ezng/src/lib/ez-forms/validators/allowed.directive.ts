@@ -1,10 +1,10 @@
-import { Directive, Input } from "@angular/core";
-import { Validator, AbstractControl, NG_VALIDATORS } from "@angular/forms";
+import { Directive, Input } from '@angular/core';
+import { Validator, AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
-import { ValidatorBase } from "./validator-base";
+import { ValidatorBase } from './validator-base';
 
 @Directive({
-  selector: "[allowed]",
+  selector: '[allowed]',
   providers: [
     { provide: NG_VALIDATORS, useExisting: AllowedDirective, multi: true }
   ]
@@ -14,7 +14,7 @@ export class AllowedDirective extends ValidatorBase implements Validator {
   allowed: string[];
 
   constructor() {
-    super("allowed");
+    super('allowed');
   }
 
   validate(c: AbstractControl): { [key: string]: any } {
@@ -24,7 +24,7 @@ export class AllowedDirective extends ValidatorBase implements Validator {
       !this.allowed.some(item => item === c.value)
     ) {
       return {
-        allowed: "Response is not allowed"
+        allowed: 'Response is not allowed'
       };
     }
 

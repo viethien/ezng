@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Optional } from "@angular/core";
+import { Component, OnInit, Input, Optional } from '@angular/core';
 
-import { EzControlBase } from "../ez-control-base";
+import { EzControlBase } from '../ez-control-base';
 
 @Component({
-  selector: "ez-control",
-  templateUrl: "./ez-control.component.html",
-  styleUrls: ["./ez-control.component.css"]
+  selector: 'ez-control',
+  templateUrl: './ez-control.component.html',
+  styleUrls: ['./ez-control.component.css']
 })
 export class EzControlComponent {
   @Input()

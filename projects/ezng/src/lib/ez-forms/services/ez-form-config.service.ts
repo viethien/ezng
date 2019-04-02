@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class EzFormConfigService {
   defaultMessages = {
-    invalid: "Invalid response",
-    required: "Response required"
+    invalid: 'Invalid response',
+    required: 'Response required'
   };
 
   controlClasses: string | string[];

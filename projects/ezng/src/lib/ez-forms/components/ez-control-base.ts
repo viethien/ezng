@@ -1,10 +1,10 @@
-import { Input, OnDestroy } from "@angular/core";
-import { ControlValueAccessor, NgControl } from "@angular/forms";
-import { Subscription } from "rxjs";
+import { Input, OnDestroy } from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
-import { EzFormDirective } from "../directives/ez-form.directive";
-import { EzFormConfigService } from "../services/ez-form-config.service";
-import { EzGroupComponent } from "./ez-group/ez-group.component";
+import { EzFormDirective } from '../directives/ez-form.directive';
+import { EzFormConfigService } from '../services/ez-form-config.service';
+import { EzGroupComponent } from './ez-group/ez-group.component';
 
 export class EzControlBase implements ControlValueAccessor, OnDestroy {
   constructor(
@@ -21,11 +21,11 @@ export class EzControlBase implements ControlValueAccessor, OnDestroy {
         this.message =
           this.messages[errorType] ||
           ezFormConfigService.defaultMessages[errorType] ||
-          (typeof errorValue === "string"
+          (typeof errorValue === 'string'
             ? errorValue
             : ezFormConfigService.defaultMessages.invalid);
       } else {
-        this.message = "";
+        this.message = '';
       }
     });
   }
@@ -135,7 +135,7 @@ export class EzControlBase implements ControlValueAccessor, OnDestroy {
     return this.ezFormConfigService.selectClasses;
   }
 
-  message: string = "";
+  message = '';
 
   value: any = null;
 

@@ -1,9 +1,9 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: "app-ez-group",
-  templateUrl: "./ez-group.component.html",
-  styleUrls: ["./ez-group.component.css"]
+  selector: 'ez-group',
+  templateUrl: './ez-group.component.html',
+  styleUrls: ['./ez-group.component.css']
 })
 export class EzGroupComponent {
   @Input()

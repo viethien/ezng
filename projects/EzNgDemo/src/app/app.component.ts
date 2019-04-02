@@ -1,14 +1,14 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   model = {
-    text: "",
-    yesno: "Y",
+    text: '',
+    yesno: 'Y',
     select: 1,
     radio: null,
     checkbox: false,
@@ -31,6 +31,6 @@ export class AppComponent {
   ];
 
   onSubmit() {
-    console.log("Submitted");
+    console.log('Submitted');
   }
 }

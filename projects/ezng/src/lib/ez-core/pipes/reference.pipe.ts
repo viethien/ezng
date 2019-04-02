@@ -1,7 +1,7 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: "reference"
+  name: 'reference'
 })
 export class ReferencePipe implements PipeTransform {
   transform(value: any, options: any[]): string {

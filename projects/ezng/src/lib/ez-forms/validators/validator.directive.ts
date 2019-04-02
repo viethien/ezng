@@ -1,7 +1,7 @@
-import { Directive } from "@angular/core";
+import { Directive } from '@angular/core';
 
 @Directive({
-  selector: "[ezValidator]"
+  selector: '[ezValidator]'
 })
 export class ValidatorDirective {
   constructor() {}

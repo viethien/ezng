@@ -1,4 +1,4 @@
-import { SimpleChanges, OnChanges } from "@angular/core";
+import { SimpleChanges, OnChanges } from '@angular/core';
 
 export class ValidatorBase implements OnChanges {
   inputs: string[];

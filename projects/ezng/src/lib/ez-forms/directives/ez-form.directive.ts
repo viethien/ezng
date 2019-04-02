@@ -5,44 +5,40 @@ import {
   EventEmitter,
   Input,
   Output
-} from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { Subscription } from "rxjs";
+} from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Directive({
-  selector: "[ez-form]"
+  selector: '[ez-form]'
 })
 export class EzFormDirective implements OnDestroy {
   @Output()
   ezSubmit: EventEmitter<void> = new EventEmitter();
 
-  _readonly = false;
-  @Input()
-  set readonly(val: any) {
+  readonly = false;
+  @Input('readonly')
+  set setReadonly(val: any) {
     if (val) {
-      this.el.nativeElement.classList.add("ez-form-readonly");
+      this.el.nativeElement.classList.add('ez-form-readonly');
     } else {
-      this.el.nativeElement.classList.remove("ez-form-readonly");
+      this.el.nativeElement.classList.remove('ez-form-readonly');
     }
-    this._readonly = val !== undefined && val !== false ? true : false;
-  }
-
-  get readonly() {
-    return this._readonly;
+    this.readonly = val !== undefined && val !== false ? true : false;
   }
 
   private subscription: Subscription;
 
   constructor(form: NgForm, private el: ElementRef) {
-    el.nativeElement.classList.add("ez-form");
+    el.nativeElement.classList.add('ez-form');
     this.subscription = form.ngSubmit.subscribe(_ => {
       this.onSubmit(el.nativeElement);
       if (form.valid) {
         this.ezSubmit.emit();
       }
     });
-    el.nativeElement.addEventListener("reset", () => {
-      el.nativeElement.classList.remove("ez-submitted");
+    el.nativeElement.addEventListener('reset', () => {
+      el.nativeElement.classList.remove('ez-submitted');
     });
   }
 
@@ -53,15 +49,15 @@ export class EzFormDirective implements OnDestroy {
   }
 
   onSubmit(elm) {
-    elm.classList.add("ez-submitted");
+    elm.classList.add('ez-submitted');
     const invalid = elm.querySelector(
-      ".ng-invalid .ng-invalid input, .ng-invalid .ng-invalid select, .ng-invalid .ng-invalid textarea"
+      '.ng-invalid .ng-invalid input, .ng-invalid .ng-invalid select, .ng-invalid .ng-invalid textarea'
     );
     if (invalid) {
       invalid.focus();
     } else {
       const validation = elm.querySelector(
-        ".ng-invalid .ng-invalid .ez-validation"
+        '.ng-invalid .ng-invalid .ez-validation'
       );
       if (validation) {
         validation.scrollIntoView();

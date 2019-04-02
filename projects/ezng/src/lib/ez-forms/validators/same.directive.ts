@@ -1,10 +1,10 @@
-import { Directive, Input } from "@angular/core";
-import { Validator, AbstractControl, NG_VALIDATORS } from "@angular/forms";
+import { Directive, Input } from '@angular/core';
+import { Validator, AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
-import { ValidatorBase } from "./validator-base";
+import { ValidatorBase } from './validator-base';
 
 @Directive({
-  selector: "[same]",
+  selector: '[same]',
   providers: [
     { provide: NG_VALIDATORS, useExisting: SameDirective, multi: true }
   ]
@@ -14,7 +14,7 @@ export class SameDirective extends ValidatorBase implements Validator {
   same: string[];
 
   constructor() {
-    super("same");
+    super('same');
   }
 
   validate(c: AbstractControl): { [key: string]: any } {
