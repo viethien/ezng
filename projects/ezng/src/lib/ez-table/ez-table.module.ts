@@ -13,7 +13,7 @@ import { EzColumnComponent } from './components/ez-column/ez-column.component';
     EzColumnComponent
   ],
   imports: [CommonModule],
-  exports:[
+  exports: [
     EzTableComponent,
     EzTablePagerComponent,
     EzTableSearchComponent,
