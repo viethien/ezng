@@ -25,26 +25,26 @@ describe('AppComponent', () => {
   });
 
   it('password should be invalid', async () => {
-    const invalid = await helper.invalid('password');
-    expect(invalid).toBeTruthy();
+    const control = await helper.control('password');
+    expect(control.invalid).toBeTruthy();
   });
 
   it('password should be valid', async () => {
     component.model.password = 'some password';
-    const valid = await helper.valid('password');
-    expect(valid).toBeTruthy();
+    const control = await helper.control('password');
+    expect(control.valid).toBeTruthy();
   });
 
   it('password again should be invalid', async () => {
     component.model.password = 'some password';
-    const invalid = await helper.invalid('passwordAgain');
-    expect(invalid).toBeTruthy();
+    const control = await helper.control('passwordAgain');
+    expect(control.invalid).toBeTruthy();
   });
 
   it('password again should be valid', async () => {
     component.model.password = 'some password';
     component.passwordAgain = 'some password';
-    const valid = await helper.valid('passwordAgain');
-    expect(valid).toBeTruthy();
+    const control = await helper.control('passwordAgain');
+    expect(control.valid).toBeTruthy();
   });
 });

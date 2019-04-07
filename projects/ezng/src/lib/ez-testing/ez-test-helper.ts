@@ -5,39 +5,10 @@ import { By } from '@angular/platform-browser';
 export class EzTestHelper<T> {
   constructor(private fixture: ComponentFixture<T>) { }
 
-  async find(name: string): Promise<DebugElement> {
+  async control(name: string): Promise<any> {
     this.fixture.detectChanges();
     await this.fixture.whenStable();
-    return this.fixture.debugElement.query(By.css(`[name=${name}]`));
-  }
-
-  async required(name: string): Promise<boolean> {
-    const child = await this.find(name);
-    return child ? child.context.required : undefined;
-  }
-
-  async valid(name: string): Promise<boolean> {
-    const child = await this.find(name);
-    return child ? child.context.valid : undefined;
-  }
-
-  async invalid(name: string): Promise<boolean> {
-    const child = await this.find(name);
-    return child ? child.context.invalid : undefined;
-  }
-
-  async value(name: string): Promise<any> {
-    const child = await this.find(name);
-    return child ? child.context.value : undefined;
-  }
-
-  async message(name: string): Promise<any> {
-    const child = await this.find(name);
-    return child ? child.context.message : undefined;
-  }
-
-  async shown(name: string): Promise<boolean> {
-    const child = await this.find(name);
-    return child !== null;
+    const element = this.fixture.debugElement.query(By.css(`[name=${name}]`));
+    return element ? element.context : undefined;
   }
 }
