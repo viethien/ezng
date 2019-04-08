@@ -24,27 +24,27 @@ describe('AppComponent', () => {
     helper = new EzTestHelper(fixture);
   });
 
-  it('password should be invalid', async () => {
+  it('password should be invalid', async(async () => {
     const control = await helper.control('password');
     expect(control.invalid).toBeTruthy();
-  });
+  }));
 
-  it('password should be valid', async () => {
+  it('password should be valid', async(async () => {
     component.model.password = 'some password';
     const control = await helper.control('password');
     expect(control.valid).toBeTruthy();
-  });
+  }));
 
-  it('password again should be invalid', async () => {
+  it('password again should be invalid', async(async () => {
     component.model.password = 'some password';
     const control = await helper.control('passwordAgain');
     expect(control.invalid).toBeTruthy();
-  });
+  }));
 
-  it('password again should be valid', async () => {
+  it('password again should be valid', async(async () => {
     component.model.password = 'some password';
     component.passwordAgain = 'some password';
     const control = await helper.control('passwordAgain');
     expect(control.valid).toBeTruthy();
-  });
+  }));
 });
